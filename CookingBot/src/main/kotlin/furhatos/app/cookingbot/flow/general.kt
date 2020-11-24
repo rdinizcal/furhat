@@ -1,5 +1,7 @@
 package furhatos.app.cookingbot.flow
 
+import furhatos.app.cookingbot.knowledgebase.*
+import furhatos.app.cookingbot.nlu.*
 import furhatos.flow.kotlin.*
 import furhatos.util.*
 

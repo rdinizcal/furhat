@@ -6,7 +6,7 @@ import furhatos.flow.kotlin.*
 
 class CookingbotSkill : Skill() {
     override fun start() {
-        Flow().run(Idle)
+        Flow().run(GreetState)
     }
 }
 
