@@ -1,7 +1,7 @@
 # Cookin' with Furhat
 [Placeholder for a description of what we are doing herer]
 
-##Getting Started...
+## Getting Started...
 
 Clone the Skill in your local machine
 ```
