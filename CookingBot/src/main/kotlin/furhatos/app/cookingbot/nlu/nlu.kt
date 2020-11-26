@@ -33,8 +33,20 @@ class PreviousStep() : Intent() {
 
 class NextStep() : Intent() {
     override fun getExamples(lang: Language): List<String> {
-        return listOf("next step", "next", "forward")
+        return listOf("next step", "next", "forward", "yes")
     }
+}
+
+class OtherStep(
+        var count : Number? = Number(1),
+        var step : Step? = null) : ComplexEnumEntity() {
+    override fun getEnum(lang: Language): List<String> {
+        return listOf("step @count", "@count")
+    }
+
+    //override fun toText(): String {
+    //    return generate("$count " + if (count?.value == 1) fruit?.value else "${fruit?.value}" + "s")
+    //}
 }
 
 /* Deprecated
