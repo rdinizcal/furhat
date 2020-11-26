@@ -49,6 +49,14 @@ class OtherStep(
     //}
 }
 
+class IngredientQuantity(var name: String) {}
+
+class RequestQuantity(var quantifiedStep: QuantifiedStep? = null) : Intent() {
+    override fun getExamples(lang: Language): List<String> {
+        return listOf("How many @ingredientQuantity ?", "How much @ingredient ?")
+    }
+}
+
 /* Deprecated
 class RequestOptions: Intent() {
 override fun getExamples(lang: Language): List<String> {

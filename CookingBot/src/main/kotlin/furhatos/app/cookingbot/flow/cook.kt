@@ -49,11 +49,10 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
         furhat.ask("", timeout = 99999999)
     }
     // Do something when the user steps back in, ask if the user wants to read the step again
-    /*
-    onResponse<Done>{
-        goto(RateState)
+
+    onResponse<RequestQuantity>{
+        furhat.say(it.intent.count)
     }
-    */
 }
 
 fun ReadStepState(step:Step): State = state {
