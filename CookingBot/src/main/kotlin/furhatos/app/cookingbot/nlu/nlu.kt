@@ -10,15 +10,25 @@ import furhatos.util.Language
 
 
 
-class RecipeList : ListEntity<Recipe>()
-
+class RecipeList : ListEntity<RecipeContainer>()
 
 
 class Recipe : EnumEntity(stemming = true, speechRecPhrases = true) {
     override fun getEnum(lang: Language): List<String> {
-        return listOf("chill sin carne", "chilli con carne")
+        return listOf("chill sin carne", "scrambled eggs", "falafel", "spaghetti bolognese", "French toast" )
     }
 }
+class RecipeContainer(
+        var recipe : Recipe? = null) : ComplexEnumEntity() {
+    override fun getEnum(lang: Language): List<String> {
+        return listOf("@recipe")
+    }
+
+    override fun toText(): String {
+        return generate("${recipe?.value}")
+    }
+}
+
 
 
 class FindRecipe(var recipes : RecipeList? = null) : Intent() {
