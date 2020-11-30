@@ -96,6 +96,38 @@ class orderrecipe(var recipes : recipeList1? = null) : Intent() {
         return listOf("@recipes", "I want to cook @recipes", "I would like to cook @recipes")
     }
 }
+
+val AskForPlans = state(Options) {
+    onEntry {
+        random(
+                { furhat.ask("Do you need help with cooking tonight?") },
+                { furhat.ask("Would you like to make dinner plans?") }
+        )
+    }
+    onResponse<Yes> {
+        random(
+                { furhat.ask("What recipe do you want to use?") },
+                { furhat.ask("What are we having for dinner?") }
+        )
+        goto(LookForRecipe)
+    }
+
+    onResponse<No> {
+        furhat.say("Okay, that's a shame. Maybe tomorrow then!")
+        goto(Idle)
+    }
+}
+
+
+val LookForRecipe = state(Options) {
+    onEntry {
+        random(
+                { furhat.ask("Do you need help with cooking tonight?") },
+                { furhat.ask("Would you like to make dinner plans?") }
+        )
+    }
+}
+
 /* Deprecated
 class RequestOptions: Intent() {
 override fun getExamples(lang: Language): List<String> {
