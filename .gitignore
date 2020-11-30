@@ -1,0 +1,4 @@
+*/.gradle/
+CookingBot/.idea/
+build/
+logs/
