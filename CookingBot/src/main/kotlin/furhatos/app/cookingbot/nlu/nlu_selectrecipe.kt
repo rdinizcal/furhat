@@ -35,17 +35,13 @@ class Recipe3 : EnumEntity(stemming = true, speechRecPhrases = true) {
     }
 }
 
-class FindRecipe(var recipes : RecipeList? = null) : Intent() {
-    override fun getExamples(lang: Language): List<String> {
-        return listOf("@fruits", "I want @fruits", "I would like @fruits", "I want to buy @fruits")
-    }
-}
 
 class RequestOptions: Intent() {
     override fun getExamples(lang: Language): List<String> {
         return listOf("What options do you have?",
                 "What recipes do you have?",
-                "What do you suggest?")
+                "What do you suggest?",
+                "What do you prefer?")
     }
 }
 

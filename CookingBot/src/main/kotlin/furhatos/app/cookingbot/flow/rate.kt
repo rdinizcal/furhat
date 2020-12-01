@@ -16,15 +16,9 @@ import furhatos.nlu.common.Yes
 val CookingDone: State = state {
     onEntry {
         furhat.say("Your dinner is ready!")
-//       fruits.list.forEach {
-//           users.current.order.fruits.list.add(it)
-//        }
         furhat.ask("Do you want to rate your food?")
     }
 
-//    onReentry {
-//        furhat.ask("Do you need something else?")
-//   }
 
     onResponse<No> {
         furhat.gesture(Gestures.Smile)

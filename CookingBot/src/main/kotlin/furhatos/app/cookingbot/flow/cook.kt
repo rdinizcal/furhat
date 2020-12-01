@@ -18,15 +18,29 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
     }
 
     // Can you repeat?
-    onResponse<RequestRepeat>{
+    onResponse<RequestRepeat> {
         furhat.say("Yes, sure!")
-        furhat.say("Step " + (currentStep.id+1).toString() )
+        furhat.say("Step " + (currentStep.id + 1).toString())
         furhat.say(currentStep.body)
-        furhat.ask("Can we proceed?")
+        random(
+                { furhat.ask("Can we proceed?") },
+                { furhat.ask("Shall we continue?") }
+        )
+    }
+
+    onResponse<RequestFinished> {
+        random(
+                { furhat.ask("Of course! Good bye") },
+                { furhat.ask("OK! Good night") }
+        )
+        goto(Idle)
     }
 
     onResponse<No>{
-        furhat.ask("Do you want me to repeat, go to previous or next step? ")
+        random(
+                { furhat.ask("Do you want me to repeat, go to previous or next step? ") },
+                { furhat.ask("Should I repeat, go to next or previous step?") }
+        )
     }
 
     // Can you go to Step X?
@@ -41,7 +55,10 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
             currentStep = recipeDesc.steps[intCount-1]
             furhat.say("Step " + (currentStep.id+1).toString() )
             furhat.say(currentStep.body)
-            furhat.ask("Can we proceed?")
+            random(
+                    { furhat.ask("Can we proceed?") },
+                    { furhat.ask("Shall we continue?") }
+            )
         }
     }
 
@@ -52,7 +69,11 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
         }
         furhat.say("Step " + (currentStep.id+1).toString() )
         furhat.say(currentStep.body)
-        furhat.ask("Can we proceed?")
+//        furhat.ask("Can we proceed?")
+        random(
+                { furhat.ask("Can we proceed?") },
+                { furhat.ask("Shall we continue?") }
+        )
     }
 
     onResponse<Yes>{
@@ -65,7 +86,11 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
             currentStep = recipeDesc.steps[currentStep.id + 1]
             furhat.say("Step " + (currentStep.id + 1).toString())
             furhat.say(currentStep.body)
-            furhat.ask("Can we proceed?")
+//            furhat.ask("Can we proceed?")
+            random(
+                    { furhat.ask("Can we proceed?") },
+                    { furhat.ask("Shall we continue?") }
+            )
         }
     }
 
@@ -79,7 +104,11 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
             currentStep = recipeDesc.steps[currentStep.id + 1]
             furhat.say("Step " + (currentStep.id + 1).toString())
             furhat.say(currentStep.body)
-            furhat.ask("Can we proceed?")
+//            furhat.ask("Can we proceed?")
+            random(
+                    { furhat.ask("Can we proceed?") },
+                    { furhat.ask("Shall we continue?") }
+            )
         }
     }
     // Do something when the user steps back in, ask if the user wants to read the step again

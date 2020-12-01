@@ -7,7 +7,7 @@ import furhatos.flow.kotlin.state
 val GreetState: State = state {
 
     init {
-        furhat.say("Hi! This is a stub for greeting state.")
+        furhat.say("I am happy to help you with cooking dinner")
         goto(Start)
     }
 }

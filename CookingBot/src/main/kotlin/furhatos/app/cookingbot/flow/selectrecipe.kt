@@ -1,6 +1,4 @@
-/**
- * @author: shamisa.shoja@liu.se
- */
+
 
 package furhatos.app.cookingbot.flow
 
@@ -34,7 +32,8 @@ val Options = state(Interaction) {
 
     onResponse<RequestOptions> {
         //furhat.ask("Would you like some?")
-        //furhat.say("I would suggest ${Recipe3().optionsToText()}")
+//        furhat.say("I would suggest Spaghetti) // ${Recipe3().optionsToText()}")
+        furhat.say("I would suggest Spaghetti")
         furhat.ask("What do you prefer?")
     }
 
@@ -42,6 +41,10 @@ val Options = state(Interaction) {
         //furhat.say("We have ${Recipesr().optionsToText()} recipes.")
         //furhat.say("${Recipe1().optionsToText()}.")
         //furhat.say("${Recipe2().optionsToText()}.")
+        random(
+                { furhat.say("We have Chilli con, Spaghetti, Baked falafel, scrambled eggs, and French toast.")},
+                { furhat.say("We have 5 recipes") }
+        )
         random(
                 { furhat.ask("Which of these foods would you make?") },
                 { furhat.ask("What is your choice?") }

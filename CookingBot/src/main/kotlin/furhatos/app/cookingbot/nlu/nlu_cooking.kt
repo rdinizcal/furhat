@@ -18,7 +18,6 @@ class PreviousStep() : Intent() {
 class NextStep() : Intent() {
     override fun getExamples(lang: Language): List<String> {
         return listOf("next step", "next", "forward")
-//
     }
 }
 
@@ -29,7 +28,13 @@ class OtherStep(
         return listOf("step @count", "@count")
     }
 
-    //override fun toText(): String {
-    //    return generate("$count " + if (count?.value == 1) fruit?.value else "${fruit?.value}" + "s")
-    //}
+}
+
+
+class RequestFinished: Intent() {
+    override fun getExamples(lang: Language): List<String> {
+        return listOf("I want to go",
+                "finish", "finish it", "bye",
+                "thank you", "Ok")
+    }
 }
