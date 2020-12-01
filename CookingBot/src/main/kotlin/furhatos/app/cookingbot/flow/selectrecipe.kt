@@ -34,14 +34,14 @@ val Options = state(Interaction) {
 
     onResponse<RequestOptions> {
         //furhat.ask("Would you like some?")
-        furhat.say("I would suggest ${Recipe3().optionsToText()}")
+        //furhat.say("I would suggest ${Recipe3().optionsToText()}")
         furhat.ask("What do you prefer?")
     }
 
     onResponse<Yes> {
-        furhat.say("We have ${Recipesr().optionsToText()} recipes.")
-        furhat.say("${Recipe1().optionsToText()}.")
-        furhat.say("${Recipe2().optionsToText()}.")
+        //furhat.say("We have ${Recipesr().optionsToText()} recipes.")
+        //furhat.say("${Recipe1().optionsToText()}.")
+        //furhat.say("${Recipe2().optionsToText()}.")
         random(
                 { furhat.ask("Which of these foods would you make?") },
                 { furhat.ask("What is your choice?") }

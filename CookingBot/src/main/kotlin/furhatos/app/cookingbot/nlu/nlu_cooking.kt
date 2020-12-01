@@ -17,7 +17,7 @@ class PreviousStep() : Intent() {
 
 class NextStep() : Intent() {
     override fun getExamples(lang: Language): List<String> {
-        return listOf("next step", "next", "forward", "yes")
+        return listOf("next step", "next", "forward")
 //
     }
 }
