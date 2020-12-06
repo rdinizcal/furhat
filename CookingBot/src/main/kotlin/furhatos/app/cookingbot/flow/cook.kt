@@ -48,6 +48,12 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
         call(ReadStepState(currentStep))
         furhat.ask("", timeout = 99999999)
     }
+
+    onResponse<Yes>{
+        currentStep = recipeDesc.steps[currentStep.id+1]
+        call(ReadStepState(currentStep))
+        furhat.ask("", timeout = 99999999)
+    }
     // Do something when the user steps back in, ask if the user wants to read the step again
     /*
     onResponse<Done>{
@@ -61,7 +67,7 @@ fun ReadStepState(step:Step): State = state {
     onEntry {
         furhat.say("Step " + (currentStep.id+1).toString() )
         furhat.say(currentStep.body)
-        furhat.ask("Can we proceed?")
+        furhat.ask("Can we proceed?",timeout = 99999999)
         // Shall we include the tips here? Furhat offers tips for specific step
         terminate()
     }
