@@ -16,6 +16,9 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
         furhat.say(currentStep.body)
         furhat.ask("Can we proceed?")
     }
+    onEntry {
+        furhat.ask("Do you want to repeat the step, move on to next step or move to another step? ")
+    }
 
     // Can you repeat?
     onResponse<RequestRepeat> {
@@ -30,8 +33,8 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
 
     onResponse<RequestFinished> {
         random(
-                { furhat.ask("Of course! Good bye") },
-                { furhat.ask("OK! Good night") }
+                { furhat.say("Of course! Good bye") },
+                { furhat.say("OK! Good night") }
         )
         goto(Idle)
     }
@@ -111,6 +114,8 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
             )
         }
     }
+
+
 
     // Do something when the user steps back in, ask if the user wants to read the step again
     /*

@@ -76,7 +76,7 @@ val TakingOrder = state(Options) {
 fun orderReceived(recipes: recipeList1) : State = state(Options) {
     onEntry {
         furhat.say("Great! Selecting the ${recipes.toText()} Recipe")
-        if("${recipes.toText()}"=="Chilli con carne"){
+        if("${recipes.toText()}"=="Chili con carne"){
             goto(CookState(chilliConCarneRecipe))}
         if ("${recipes.toText()}"=="Baked falafel"){
             goto(CookState(BakedfalafelRecipe))}

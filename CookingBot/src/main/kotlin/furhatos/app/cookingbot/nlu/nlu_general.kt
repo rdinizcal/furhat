@@ -13,6 +13,6 @@ class GeneralOptions: Intent() {
                 "What can I do?",
                 "What do you suggest?",
                 "which options do I have?",
-                "options")
+                "options", "What can you do?", "What do you do?")
     }
 }

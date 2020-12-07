@@ -41,7 +41,7 @@ var cccStep15 : Step = Step(15, "Now replace the lid, turn off the heat and leav
 var cccStep16 : Step = Step(16, "Serve with soured cream and plain boiled long grain rice.")
 var cccStepsList = listOf<Step>(cccStep1,cccStep2,cccStep3,cccStep4,cccStep5,cccStep6,cccStep7,cccStep8,cccStep9,cccStep10,cccStep11,cccStep12,cccStep13,cccStep14,cccStep15,cccStep16)
 
-var chilliConCarneRecipe : RecipeDesc = RecipeDesc("Chilli con Carne", "This great chilli recipe has to be one of the best dishes to serve to friends for a casual get-together. An easy sharing favourite that uses up store cupboard ingredients.", "10 min",  "1 hour", "Easy", "4 people", steps=cccStepsList)
+var chilliConCarneRecipe : RecipeDesc = RecipeDesc("Chili con Carne", "This great chili recipe has to be one of the best dishes to serve to friends for a casual get-together. An easy sharing favourite that uses up store cupboard ingredients.", "10 min",  "1 hour", "Easy", "4 people", steps=cccStepsList)
 
 // Perfect scrambled eggs recipe
 
