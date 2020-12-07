@@ -60,7 +60,7 @@ class Quantifiedrecipe(
 
 class Recipesr : EnumEntity(stemming = true, speechRecPhrases = true) {
     override fun getEnum(lang: Language): List<String> {
-        return listOf("Chilli con", "Spaghetti", "Baked falafel", "scrambled eggs","French toast")
+        return listOf("Chilli con carne", "Spaghetti", "Baked falafel", "scrambled eggs","French toast")
     }
 }
 

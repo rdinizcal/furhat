@@ -111,6 +111,7 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
             )
         }
     }
+
     // Do something when the user steps back in, ask if the user wants to read the step again
     /*
     onResponse<Done>{
@@ -120,7 +121,6 @@ fun CookState(recipeDesc: RecipeDesc): State = state {
 }
 
 fun CheckDone(recipeDesc:RecipeDesc): State = state {
-
     onEntry{
         furhat.ask("The last step is ${recipeDesc.steps.size}. Are you done with cooking?")
     }

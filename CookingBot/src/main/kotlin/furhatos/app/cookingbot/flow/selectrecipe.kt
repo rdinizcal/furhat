@@ -9,10 +9,13 @@ import furhatos.nlu.common.*
 import furhatos.snippets.noRepeat
 
 val Start = state(Interaction) {
+    init {
+
+    }
     onEntry {
         random(
-                {   furhat.say("Hi there") },
-                {   furhat.say("Oh, hello there") }
+                {   furhat.say("Welcome to the recipe finder") },
+                {   furhat.say("I am the recipe master") }
         )
 
         goto(TakingOrder)
@@ -58,13 +61,11 @@ val Options = state(Interaction) {
 }
 
 val TakingOrder = state(Options) {
-    onEntry {
-        random(
-                { furhat.ask("Would you like to cook") },
-                { furhat.ask("Do you want recipe?") }
-        )
-    }
 
+    onEntry {
+            furhat.say("We can make ${Recipesr().optionsToText()}")
+            furhat.ask("Which one do you want to make? Or maybe you want to hear more about the recipes, yes?")
+    }
 
     onResponse<No> {
         furhat.say("Okay. Good luck!")
@@ -75,7 +76,7 @@ val TakingOrder = state(Options) {
 fun orderReceived(recipes: recipeList1) : State = state(Options) {
     onEntry {
         furhat.say("Great! Selecting the ${recipes.toText()} Recipe")
-        if("${recipes.toText()}"=="Chilli con"){
+        if("${recipes.toText()}"=="Chilli con carne"){
             goto(CookState(chilliConCarneRecipe))}
         if ("${recipes.toText()}"=="Baked falafel"){
             goto(CookState(BakedfalafelRecipe))}
