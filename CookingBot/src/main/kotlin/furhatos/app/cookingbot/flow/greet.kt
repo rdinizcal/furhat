@@ -33,17 +33,17 @@ val GreetOptions = state(Interaction) {
 
     onResponse<CookingDesire>{
         furhat.say("hello, so you want to cook!")
-        goto(Idle)
+        goto(TakingOrder)
     }
 
     onResponse<FindRecipeDesire>{
         furhat.say("Ah, so you want to make dinner plans! Let's do it")
-        goto(Idle)
+        goto(Start)
     }
 
     onResponse<GiveRateDesire>{
         furhat.say("Okay, let's give a rating")
-        goto(Idle)
+        goto(RateState1)
     }
     onResponse<GeneralOptions> {
         furhat.say("I can do the following things: 1. Help you find a recipe. 2. Help you with cooking or 3. Rate your last meal. ")

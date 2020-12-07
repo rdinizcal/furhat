@@ -15,14 +15,14 @@ import furhatos.nlu.common.Yes
 
 val CookingDone: State = state {
     onEntry {
-        furhat.say("Your dinner is ready!")
+        furhat.say("Your meal is ready!")
         furhat.ask("Do you want to rate your food?")
     }
 
 
     onResponse<No> {
         furhat.gesture(Gestures.Smile)
-        furhat.say("Okay. Enjoy your dinner!")
+        furhat.say("Okay. Enjoy your meal!")
     }
 
     onResponse <Yes> {
@@ -35,13 +35,13 @@ val CookingDone: State = state {
 val RateState1: State = state {
 
     init {
-        furhat.ask("Did you like your dinner?")
+        furhat.ask("Did you like your meal?")
     }
 
     onResponse<No> {
         furhat.gesture(Gestures.Shake)
         random(
-                {furhat.say("Oh, sorry to hear. Hope you enjoy your dinner next time!")},
+                {furhat.say("Oh, sorry to hear. Hope you enjoy your meal next time!")},
                 {furhat.say("hmm, sad to hear")}
         )
         goto(Idle)
