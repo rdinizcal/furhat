@@ -23,7 +23,7 @@ val CookingDone = state(Interaction) {
     onResponse<No> {
         furhat.gesture(Gestures.Smile)
         furhat.say("Okay. Enjoy your meal!")
-        //goto(Idle)
+        goto(Idle)
     }
 
     onResponse <Yes> {
@@ -36,6 +36,10 @@ val CookingDone = state(Interaction) {
 val RateState1 = state(Interaction) {
 
     init {
+        furhat.ask("Did you like your meal?")
+    }
+
+    onEntry {
         furhat.ask("Did you like your meal?")
     }
 
