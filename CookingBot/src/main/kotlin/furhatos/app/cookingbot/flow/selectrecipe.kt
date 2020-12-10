@@ -64,7 +64,7 @@ val TakingOrder = state(Options) {
 
     onEntry {
             furhat.say("We can make ${Recipesr().optionsToText()}")
-            furhat.ask("Which one do you want to make? Or maybe you want to hear more about the recipes, yes?")
+            furhat.ask("Which one do you want to make? Or maybe you want to hear the options again?")
     }
 
     onResponse<No> {

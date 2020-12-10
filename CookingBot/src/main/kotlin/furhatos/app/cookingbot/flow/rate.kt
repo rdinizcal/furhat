@@ -13,7 +13,7 @@ import furhatos.nlu.common.No
 import furhatos.nlu.common.Yes
 
 
-val CookingDone: State = state {
+val CookingDone = state(Interaction) {
     onEntry {
         furhat.say("Your meal is ready!")
         furhat.ask("Do you want to rate your food?")
@@ -23,6 +23,7 @@ val CookingDone: State = state {
     onResponse<No> {
         furhat.gesture(Gestures.Smile)
         furhat.say("Okay. Enjoy your meal!")
+        //goto(Idle)
     }
 
     onResponse <Yes> {
@@ -32,7 +33,7 @@ val CookingDone: State = state {
 }
 
 
-val RateState1: State = state {
+val RateState1 = state(Interaction) {
 
     init {
         furhat.ask("Did you like your meal?")
